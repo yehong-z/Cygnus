@@ -1,0 +1,5 @@
+package trace
+
+func Init() {
+
+}
