@@ -11,7 +11,7 @@ import (
 // 此处填入自己对应的ip地址、端口、数据库名称
 // TODO: 移动到配置中心
 
-const MysqlConfig = "root:zyh130452@(121.36.89.81:3306)/simple_im?charset=utf8mb4&parseTime=True&loc=Local"
+const MysqlConfig = "root:zyh130452@(121.36.89.81:3306)/reply?charset=utf8mb4&parseTime=True&loc=Local"
 
 func TestGenerateDao(t *testing.T) {
 	// 连接数据库
@@ -62,13 +62,12 @@ func TestGenerateDao(t *testing.T) {
 
 	// 创建模型的结构体,生成文件在 model 目录; 先创建的结果会被后面创建的覆盖
 	// 这里创建个别模型仅仅是为了拿到`*generate.QueryStructMeta`类型对象用于后面的模型关联操作中
-	User := g.GenerateModel("users")
-	Message := g.GenerateModel("messages")
-	Chat := g.GenerateModel("chats")
-	Friend := g.GenerateModel("friends")
+	R1 := g.GenerateModel("reply_index")
+	R2 := g.GenerateModel("reply_content")
+	R3 := g.GenerateModel("reply_subject")
 
 	// 创建模型的方法,生成文件在 query 目录; 先创建结果不会被后创建的覆盖
-	g.ApplyBasic(User, Message, Chat, Friend)
+	g.ApplyBasic(R1, R2, R3)
 
 	g.Execute()
 }

@@ -7,7 +7,7 @@ import (
 
 // TODO: 配置写进Nacos
 
-const MysqlConfig = "root:zyh130452@(121.36.89.81:3306)/simple_im?charset=utf8mb4&parseTime=True&loc=Local"
+const MysqlConfig = "root:zyh130452@(121.36.89.81:3306)/reply?charset=utf8mb4&parseTime=True&loc=Local"
 
 func NewMysql() (*gorm.DB, error) {
 	return gorm.Open(mysql.Open(MysqlConfig))
