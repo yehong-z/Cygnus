@@ -2,19 +2,54 @@ package service
 
 import (
 	"context"
-	"github.com/yehong-z/Cygnus/reply/service/api"
-
 	"dubbo.apache.org/dubbo-go/v3/config"
+	"github.com/yehong-z/Cygnus/reply/interface/api"
 )
 
-type GreeterServerImpl struct {
-	api.UnimplementedGreeterServer
+type ReplyServerImpl struct {
+	api.UnimplementedReplyServer
 }
 
-func (s *GreeterServerImpl) SayHello(ctx context.Context, in *api.HelloRequest) (*api.User, error) {
-	return &api.User{Name: "Hello " + in.Name, Id: "12345", Age: 21}, nil
+func (r ReplyServerImpl) Add(ctx context.Context, req *api.AddReq) (*api.AddResp, error) {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (r ReplyServerImpl) Like(ctx context.Context, req *api.LikeReq) (*api.CommonResp, error) {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (r ReplyServerImpl) CancelLike(ctx context.Context, req *api.CancelLikeReq) (*api.CommonResp, error) {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (r ReplyServerImpl) Dislike(ctx context.Context, req *api.DislikeReq) (*api.CommonResp, error) {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (r ReplyServerImpl) CancelDislike(ctx context.Context, req *api.CancelDislikeReq) (*api.CommonResp, error) {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (r ReplyServerImpl) Report(ctx context.Context, req *api.ReportReq) (*api.CommonResp, error) {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (r ReplyServerImpl) MainList(ctx context.Context, req *api.MainListReq) (*api.ReplysResp, error) {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (r ReplyServerImpl) Detail(ctx context.Context, req *api.DetailReq) (*api.ReplysResp, error) {
+	//TODO implement me
+	panic("implement me")
 }
 
 func init() {
-	config.SetProviderService(&GreeterServerImpl{})
+	config.SetProviderService(&ReplyServerImpl{})
 }

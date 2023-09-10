@@ -5,7 +5,7 @@ import (
 )
 
 import (
-	"dubbo-go-app/api"
+	"github.com/yehong-z/Cygnus/reply/service/api"
 
 	"dubbo.apache.org/dubbo-go/v3/common/logger"
 	"dubbo.apache.org/dubbo-go/v3/config"

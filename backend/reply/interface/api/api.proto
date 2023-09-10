@@ -4,22 +4,112 @@ package api;
 
 option go_package = "./;api";
 
-// The greeting service definition.
-service Greeter {
-  // Sends a greeting
-  rpc SayHello (HelloRequest) returns (User) {}
-  // Sends a greeting via stream
-  rpc SayHelloStream (stream HelloRequest) returns (stream User) {}
+
+service Reply {
+  //  // 获取单条评论信息接口
+  //  rpc Info(ReplyInfoReq) returns (ReplyInfoReply);
+  // 发送评论接口
+  rpc Add(AddReq) returns (AddResp);
+  // 点赞
+  rpc Like(LikeReq) returns (CommonResp);
+  // 取消点赞
+  rpc CancelLike(CancelLikeReq) returns (CommonResp);
+  // 点踩
+  rpc Dislike(DislikeReq) returns(CommonResp);
+  // 取消点踩
+  rpc CancelDislike(CancelDislikeReq) returns (CommonResp);
+  // 举报
+  rpc Report(ReportReq) returns(CommonResp);
+
+  // 查询根评论
+  rpc MainList(MainListReq) returns(ReplysResp);
+  // 查询一个评论下的所有子评论
+  rpc Detail(DetailReq) returns(ReplysResp);
 }
 
-// The request message containing the user's name.
-message HelloRequest {
-  string name = 1;
+message CommonResp {
+  int64  code = 1;
+  string string = 2;
 }
 
-// The response message containing the greetings
-message User {
-  string name = 1;
-  string id = 2;
-  int32 age = 3;
+message AddResp {
+  CommonResp commonResp = 1;
+  int64 ReplyId = 2;
+}
+
+message MainListResp {
+  CommonResp commonResp = 1;
+  ReplysResp replysResp = 2;
+}
+
+message DetailResp {
+  CommonResp commonResp = 1;
+  ReplysResp replysResp = 2;
+}
+
+message DetailReq {
+  int64 ReplyId = 1;
+}
+
+
+message MainListReq {
+  int64 SubjectId = 1;
+  int64 Page = 2;
+  int64 PageSize = 3;
+}
+
+message ReplysResp {
+  repeated ReplyResp Replys = 1;
+}
+
+message ReplyResp {
+  int64 Id = 1;
+  int64 UserId = 2;
+  int64 SubjectId = 3;
+  int64 Root = 4;
+  int64 Parent = 5;
+  int64 Floor = 6;
+  int64 Like = 7;
+  int64 Hate = 8;
+  int64 ReplyCount = 9;
+  int64 UpReply = 10;
+  int64 Top = 11;
+  int64 Ctime = 12;
+  string Content = 13;
+}
+
+
+message AddReq {
+  int64 UserId = 1;
+  int64 SubjectId = 2;
+  int64 Root = 3;
+  int64 Parent = 4;
+  string Content = 5;
+}
+
+message LikeReq {
+  int64 UserId = 1;
+  int64 ReplyId = 2;
+}
+
+message CancelLikeReq {
+  int64 UserId = 1;
+  int64 ReplyId = 2;
+}
+
+message DislikeReq {
+  int64 UserId = 1;
+  int64 ReplyId = 2;
+}
+
+message CancelDislikeReq {
+  int64 UserId = 1;
+  int64 ReplyId = 2;
+}
+
+message ReportReq {
+  int64 UserId = 1;
+  int64 ReplyId = 2;
+  int64 Reason = 3;
+  string Content = 4;
 }
