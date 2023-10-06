@@ -5,21 +5,124 @@ package api;
 option go_package = "./;api";
 
 // The greeting service definition.
-service Greeter {
-  // Sends a greeting
-  rpc SayHello (HelloRequest) returns (User) {}
-  // Sends a greeting via stream
-  rpc SayHelloStream (stream HelloRequest) returns (stream User) {}
+
+service Thumbup {
+  // 点赞接口
+  rpc Like(LikeReq) returns (LikeResp);
+  // 查询计数接口
+  rpc Stats(StatsReq) returns (StatsResp);
+  // 批量查询计数接口
+  rpc MultiStats(MultiStatsReq) returns (MultiStatsResp);
+  // 查询是否点赞接口
+  rpc HasLike(HasLikeReq) returns (HasLikeResp);
+  // 用户对业务的点赞列表
+  rpc UserLikes(UserLikesReq) returns (UserLikesResp);
+  // 对象的点赞人列表
+  rpc ItemLikes(ItemLikesReq) returns (ItemLikesResp);
+  // 用户点赞总数
+  rpc UserLikedCounts(UserLikedCountsReq) returns (UserLikedCountsResp);
+  // 获取批量用户点赞总数
+  rpc BatchLikedCounts(BatchLikedCountsReq) returns (BatchLikedCountsResp);
 }
 
-// The request message containing the user's name.
-message HelloRequest {
-  string name = 1;
+enum State {
+  // The first value represents the default and must be == 0.
+  STATE_UNSPECIFIED = 0;
+  STATE_LIKE        = 1;
+  STATE_DISLIKE     = 2;
 }
 
-// The response message containing the greetings
-message User {
-  string name = 1;
-  string id = 2;
-  int32 age = 3;
+enum Action {
+  // The first value represents the default and must be == 0.
+  ACTION_UNSPECIFIED    = 0;
+  ACTION_LIKE           = 1;
+  ACTION_CANCEL_LIKE    = 2;
+  ACTION_DISLIKE        = 3;
+  ACTION_CANCEL_DISLIKE = 4;
+}
+
+message LikeReq {
+    int64 userId = 1;
+    int64 objectId = 2;
+    Action action = 3;
+}
+
+message LikeResp {
+  int64 userId = 1;
+  int64 objectId = 2;
+  // 点赞数
+  int64 likeCount = 3;
+  // 点踩数
+  int64 dislikeCount = 4;
+}
+
+message StatsReq {
+  int64 userId = 1;
+  int64 objectId = 2;
+}
+
+message StatsResp {
+  int64 userId = 1;
+  int64 objectId = 2;
+  // 点赞数
+  int64 likeCount = 3;
+  // 点踩数
+  int64 dislikeCount = 4;
+}
+
+message MultiStatsReq {
+  repeated StatsReq statsReqs = 1;
+}
+
+message MultiStatsResp {
+  repeated StatsResp statsResps = 1;
+}
+
+message HasLikeReq {
+  int64 userId = 1;
+  int64 objectId = 2;
+}
+
+message UserLikeState {
+  // mid
+  int64 mid = 1;
+  // 点赞时间
+  int64 time  = 2;
+  State state = 3;
+}
+
+message HasLikeResp {
+  UserLikeState userLikeState = 1;
+}
+
+message UserLikesReq {
+  repeated HasLikeReq hasLikeReq = 1;
+}
+
+message UserLikesResp {
+  repeated UserLikeState userLikeStates = 1;
+}
+
+message ItemLikesReq {
+  int64 objectId = 1;
+}
+
+message ItemLikesResp {
+  repeated int64 userId = 1;
+}
+
+message UserLikedCountsReq {
+  int64 userId = 1;
+}
+
+message UserLikedCountsResp {
+  int64 count = 1;
+}
+
+message BatchLikedCountsReq {
+  repeated int64 userId = 1;
+}
+
+message BatchLikedCountsResp {
+  repeated int64 counts = 1;
 }

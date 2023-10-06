@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-triple v1.0.8
 // - protoc             v4.22.2
-// source: api/api.proto
+// source: api.proto
 
 package api
 
@@ -480,5 +480,5 @@ var Reply_ServiceDesc = grpc_go.ServiceDesc{
 		},
 	},
 	Streams:  []grpc_go.StreamDesc{},
-	Metadata: "api/api.proto",
+	Metadata: "api.proto",
 }
