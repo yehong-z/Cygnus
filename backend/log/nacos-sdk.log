@@ -1,0 +1,64 @@
+2023-09-23T11:53:42.180+0800	[31mERROR[0m	[cache.ReadConfigFromFile] error: failed to read config cache file:/home/zyh/project/Cygnus/backend/cache/config/.configurators@@service@@,err:open /home/zyh/project/Cygnus/backend/cache/config/.configurators@@service@@: no such file or directory 
+2023-09-23T11:53:42.242+0800	[31mERROR[0m	api</v1/cs/configs>,method:<GET>, params:<{"dataId":".configurators","group":"dubbo"}>, call domain error:<[404] config data not exist
+> , result:<config data not exist
+>
+2023-09-23T11:53:42.307+0800	[31mERROR[0m	api</v1/cs/configs>,method:<GET>, params:<{"dataId":".configurators","group":"dubbo"}>, call domain error:<[404] config data not exist
+> , result:<config data not exist
+>
+2023-09-23T11:53:42.422+0800	[31mERROR[0m	api</v1/cs/configs>,method:<GET>, params:<{"dataId":".configurators","group":"dubbo"}>, call domain error:<[404] config data not exist
+> , result:<config data not exist
+>
+2023-09-23T11:53:42.422+0800	[31mERROR[0m	get config from server error:[404] config data not exist
+ 
+2023-09-23T11:53:42.422+0800	[33mWARN[0m	[client.GetConfig] config not found, dataId: .configurators, group: dubbo, namespaceId: .
+2023-09-23T11:53:42.422+0800	[31mERROR[0m	[cache.ReadConfigFromFile] error: failed to read config cache file:/home/zyh/project/Cygnus/backend/cache/config/api.Greeter.configurators@@service@@,err:open /home/zyh/project/Cygnus/backend/cache/config/api.Greeter.configurators@@service@@: no such file or directory 
+2023-09-23T11:53:42.466+0800	[31mERROR[0m	api</v1/cs/configs>,method:<GET>, params:<{"dataId":"api.Greeter.configurators","group":"dubbo"}>, call domain error:<[404] config data not exist
+> , result:<config data not exist
+>
+2023-09-23T11:53:42.485+0800	[34mINFO[0m	[client.ListenConfig] request params:map[Listening-Configs:api.Greeter.configuratorsservicezyh_simple_IMservice68fb8595418c30f7c64f7892ff2b1071.configuratorsservice] header:map[Content-Type:application/x-www-form-urlencoded;charset=utf-8 Long-Pulling-Timeout:30000 Long-Pulling-Timeout-No-Hangup:true accessKey: secretKey:] 
+
+2023-09-23T11:53:42.545+0800	[31mERROR[0m	api</v1/cs/configs>,method:<GET>, params:<{"dataId":"api.Greeter.configurators","group":"dubbo"}>, call domain error:<[404] config data not exist
+> , result:<config data not exist
+>
+2023-09-23T11:53:42.609+0800	[31mERROR[0m	api</v1/cs/configs>,method:<GET>, params:<{"dataId":"api.Greeter.configurators","group":"dubbo"}>, call domain error:<[404] config data not exist
+> , result:<config data not exist
+>
+2023-09-23T11:53:42.609+0800	[31mERROR[0m	get config from server error:[404] config data not exist
+ 
+2023-09-23T11:53:42.609+0800	[33mWARN[0m	[client.GetConfig] config not found, dataId: api.Greeter.configurators, group: dubbo, namespaceId: .
+2023-09-23T11:53:42.609+0800	[34mINFO[0m	[client.ListenConfig] no change
+2023-09-23T11:53:42.610+0800	[34mINFO[0m	logDir:</home/zyh/project/Cygnus/backend/log>   cacheDir:</home/zyh/project/Cygnus/backend/cache>
+2023-09-23T11:53:42.610+0800	[34mINFO[0m	udp server start, port: 55206
+2023-09-23T11:53:42.611+0800	[34mINFO[0m	register instance namespaceId:<>,serviceName:<DEFAULT_GROUP@@providers:api.Greeter::> with instance:<{"valid":false,"marked":false,"instanceId":"","port":20000,"ip":"172.20.251.242","weight":1,"metadata":{"accesslog":"","app.version":"","application":"","auth":"","bean.name":"GreeterServerImpl","cluster":"failover","config.tracing":"","environment":"","execute.limit":"","execute.limit.rejected.handler":"","export":"true","interface":"api.Greeter","loadbalance":"random","message_size":"4","metadata-type":"local","methods":"SayHello,SayHelloStream","module":"","nacos.category":"providers","name":"","organization":"","owner":"","param.sign":"","path":"/api.Greeter","pid":"6927","protocol":"tri","registry":"nacos","registry.role":"3","release":"dubbo-golang-3.0.0","retries":"","serialization":"","service.filter":"echo,metrics,token,accesslog,tps,generic_service,execute,pshutdown","side":"provider","timestamp":"1695441222","tps.limit.interval":"","tps.limit.rate":"","tps.limit.rejected.handler":"","tps.limit.strategy":"","tps.limiter":"","warmup":""},"clusterName":"","serviceName":"","enabled":true,"healthy":true,"ephemeral":true}>
+2023-09-23T11:53:42.619+0800	[34mINFO[0m	[client.ListenConfig] request params:map[Listening-Configs:api.Greeter.configuratorsservicezyh_simple_IMservice68fb8595418c30f7c64f7892ff2b1071.configuratorsservice] header:map[Content-Type:application/x-www-form-urlencoded;charset=utf-8 Long-Pulling-Timeout:30000 accessKey: secretKey:] 
+
+2023-09-23T11:53:42.773+0800	[34mINFO[0m	adding beat: <{"ip":"172.20.251.242","port":20000,"weight":1,"serviceName":"DEFAULT_GROUP@@providers:api.Greeter::","cluster":"","metadata":{"accesslog":"","app.version":"","application":"","auth":"","bean.name":"GreeterServerImpl","cluster":"failover","config.tracing":"","environment":"","execute.limit":"","execute.limit.rejected.handler":"","export":"true","interface":"api.Greeter","loadbalance":"random","message_size":"4","metadata-type":"local","methods":"SayHello,SayHelloStream","module":"","nacos.category":"providers","name":"","organization":"","owner":"","param.sign":"","path":"/api.Greeter","pid":"6927","protocol":"tri","registry":"nacos","registry.role":"3","release":"dubbo-golang-3.0.0","retries":"","serialization":"","service.filter":"echo,metrics,token,accesslog,tps,generic_service,execute,pshutdown","side":"provider","timestamp":"1695441222","tps.limit.interval":"","tps.limit.rate":"","tps.limit.rejected.handler":"","tps.limit.strategy":"","tps.limiter":"","warmup":""},"scheduled":false}> to beat map
+2023-09-23T11:53:42.774+0800	[34mINFO[0m	namespaceId:<> sending beat to server:<{"ip":"172.20.251.242","port":20000,"weight":1,"serviceName":"DEFAULT_GROUP@@providers:api.Greeter::","cluster":"","metadata":{"accesslog":"","app.version":"","application":"","auth":"","bean.name":"GreeterServerImpl","cluster":"failover","config.tracing":"","environment":"","execute.limit":"","execute.limit.rejected.handler":"","export":"true","interface":"api.Greeter","loadbalance":"random","message_size":"4","metadata-type":"local","methods":"SayHello,SayHelloStream","module":"","nacos.category":"providers","name":"","organization":"","owner":"","param.sign":"","path":"/api.Greeter","pid":"6927","protocol":"tri","registry":"nacos","registry.role":"3","release":"dubbo-golang-3.0.0","retries":"","serialization":"","service.filter":"echo,metrics,token,accesslog,tps,generic_service,execute,pshutdown","side":"provider","timestamp":"1695441222","tps.limit.interval":"","tps.limit.rate":"","tps.limit.rejected.handler":"","tps.limit.strategy":"","tps.limiter":"","warmup":""},"scheduled":false}>
+2023-09-23T11:53:42.774+0800	[31mERROR[0m	[cache.ReadConfigFromFile] error: failed to read config cache file:/home/zyh/project/Cygnus/backend/cache/config/grpc.reflection.v1alpha.ServerReflection.configurators@@service@@,err:open /home/zyh/project/Cygnus/backend/cache/config/grpc.reflection.v1alpha.ServerReflection.configurators@@service@@: no such file or directory 
+2023-09-23T11:53:42.838+0800	[31mERROR[0m	api</v1/cs/configs>,method:<GET>, params:<{"dataId":"grpc.reflection.v1alpha.ServerReflection.configurators","group":"dubbo"}>, call domain error:<[404] config data not exist
+> , result:<config data not exist
+>
+2023-09-23T11:53:42.903+0800	[31mERROR[0m	api</v1/cs/configs>,method:<GET>, params:<{"dataId":"grpc.reflection.v1alpha.ServerReflection.configurators","group":"dubbo"}>, call domain error:<[404] config data not exist
+> , result:<config data not exist
+>
+2023-09-23T11:53:42.947+0800	[31mERROR[0m	api</v1/cs/configs>,method:<GET>, params:<{"dataId":"grpc.reflection.v1alpha.ServerReflection.configurators","group":"dubbo"}>, call domain error:<[404] config data not exist
+> , result:<config data not exist
+>
+2023-09-23T11:53:42.947+0800	[31mERROR[0m	get config from server error:[404] config data not exist
+ 
+2023-09-23T11:53:42.947+0800	[33mWARN[0m	[client.GetConfig] config not found, dataId: grpc.reflection.v1alpha.ServerReflection.configurators, group: dubbo, namespaceId: .
+2023-09-23T11:53:42.947+0800	[34mINFO[0m	register instance namespaceId:<>,serviceName:<DEFAULT_GROUP@@providers:grpc.reflection.v1alpha.ServerReflection::> with instance:<{"valid":false,"marked":false,"instanceId":"","port":20000,"ip":"172.20.251.242","weight":1,"metadata":{"accesslog":"","app.version":"","application":"","auth":"","bean.name":"XXX_serverReflectionServer","cluster":"failover","config.tracing":"","environment":"","execute.limit":"","execute.limit.rejected.handler":"","export":"true","interface":"grpc.reflection.v1alpha.ServerReflection","loadbalance":"random","message_size":"4","metadata-type":"local","methods":"ServerReflectionInfo","module":"","nacos.category":"providers","name":"","organization":"","owner":"","param.sign":"","path":"/grpc.reflection.v1alpha.ServerReflection","pid":"6927","protocol":"tri","registry":"nacos","registry.role":"3","release":"dubbo-golang-3.0.0","retries":"","serialization":"","service.filter":"echo,metrics,token,accesslog,tps,generic_service,execute,pshutdown","side":"provider","timestamp":"1695441222","tps.limit.interval":"","tps.limit.rate":"","tps.limit.rejected.handler":"","tps.limit.strategy":"","tps.limiter":"","warmup":""},"clusterName":"","serviceName":"","enabled":true,"healthy":true,"ephemeral":true}>
+2023-09-23T11:53:43.046+0800	[34mINFO[0m	adding beat: <{"ip":"172.20.251.242","port":20000,"weight":1,"serviceName":"DEFAULT_GROUP@@providers:grpc.reflection.v1alpha.ServerReflection::","cluster":"","metadata":{"accesslog":"","app.version":"","application":"","auth":"","bean.name":"XXX_serverReflectionServer","cluster":"failover","config.tracing":"","environment":"","execute.limit":"","execute.limit.rejected.handler":"","export":"true","interface":"grpc.reflection.v1alpha.ServerReflection","loadbalance":"random","message_size":"4","metadata-type":"local","methods":"ServerReflectionInfo","module":"","nacos.category":"providers","name":"","organization":"","owner":"","param.sign":"","path":"/grpc.reflection.v1alpha.ServerReflection","pid":"6927","protocol":"tri","registry":"nacos","registry.role":"3","release":"dubbo-golang-3.0.0","retries":"","serialization":"","service.filter":"echo,metrics,token,accesslog,tps,generic_service,execute,pshutdown","side":"provider","timestamp":"1695441222","tps.limit.interval":"","tps.limit.rate":"","tps.limit.rejected.handler":"","tps.limit.strategy":"","tps.limiter":"","warmup":""},"scheduled":false}> to beat map
+2023-09-23T11:53:43.047+0800	[34mINFO[0m	namespaceId:<> sending beat to server:<{"ip":"172.20.251.242","port":20000,"weight":1,"serviceName":"DEFAULT_GROUP@@providers:grpc.reflection.v1alpha.ServerReflection::","cluster":"","metadata":{"accesslog":"","app.version":"","application":"","auth":"","bean.name":"XXX_serverReflectionServer","cluster":"failover","config.tracing":"","environment":"","execute.limit":"","execute.limit.rejected.handler":"","export":"true","interface":"grpc.reflection.v1alpha.ServerReflection","loadbalance":"random","message_size":"4","metadata-type":"local","methods":"ServerReflectionInfo","module":"","nacos.category":"providers","name":"","organization":"","owner":"","param.sign":"","path":"/grpc.reflection.v1alpha.ServerReflection","pid":"6927","protocol":"tri","registry":"nacos","registry.role":"3","release":"dubbo-golang-3.0.0","retries":"","serialization":"","service.filter":"echo,metrics,token,accesslog,tps,generic_service,execute,pshutdown","side":"provider","timestamp":"1695441222","tps.limit.interval":"","tps.limit.rate":"","tps.limit.rejected.handler":"","tps.limit.strategy":"","tps.limiter":"","warmup":""},"scheduled":false}>
+2023-10-07T02:35:13.822+0800	[31mERROR[0m	api</v1/cs/configs>,method:<GET>, params:<{"dataId":"zyh_cygnus_like_service","group":"service"}>, call domain error:<[404] config data not exist
+> , result:<config data not exist
+>
+2023-10-07T02:35:13.856+0800	[31mERROR[0m	api</v1/cs/configs>,method:<GET>, params:<{"dataId":"zyh_cygnus_like_service","group":"service"}>, call domain error:<[404] config data not exist
+> , result:<config data not exist
+>
+2023-10-07T02:35:13.879+0800	[31mERROR[0m	api</v1/cs/configs>,method:<GET>, params:<{"dataId":"zyh_cygnus_like_service","group":"service"}>, call domain error:<[404] config data not exist
+> , result:<config data not exist
+>
+2023-10-07T02:35:13.879+0800	[31mERROR[0m	get config from server error:[404] config data not exist
+ 
+2023-10-07T02:35:13.879+0800	[33mWARN[0m	[client.GetConfig] config not found, dataId: zyh_cygnus_like_service, group: service, namespaceId: .
