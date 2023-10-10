@@ -4,6 +4,7 @@ go 1.19
 
 require (
 	dubbo.apache.org/dubbo-go/v3 v3.0.1
+	github.com/Shopify/sarama v1.19.0
 	github.com/dubbogo/grpc-go v1.42.9
 	github.com/dubbogo/triple v1.1.8
 	google.golang.org/protobuf v1.27.1
@@ -31,6 +32,9 @@ require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/dubbogo/go-zookeeper v1.0.4-0.20211212162352-f9d2183d89d5 // indirect
 	github.com/dubbogo/gost v1.11.22 // indirect
+	github.com/eapache/go-resiliency v1.1.0 // indirect
+	github.com/eapache/go-xerial-snappy v0.0.0-20180814174437-776d5712da21 // indirect
+	github.com/eapache/queue v1.1.0 // indirect
 	github.com/emicklei/go-restful/v3 v3.7.3 // indirect
 	github.com/fsnotify/fsnotify v1.5.1 // indirect
 	github.com/ghodss/yaml v1.0.0 // indirect
@@ -90,6 +94,7 @@ require (
 	github.com/prometheus/common v0.32.1 // indirect
 	github.com/prometheus/procfs v0.7.3 // indirect
 	github.com/prometheus/statsd_exporter v0.21.0 // indirect
+	github.com/rcrowley/go-metrics v0.0.0-20181016184325-3113b8401b8a // indirect
 	github.com/robfig/cron/v3 v3.0.1 // indirect
 	github.com/satori/go.uuid v1.2.1-0.20181028125025-b2ce2384e17b // indirect
 	github.com/shirou/gopsutil v3.20.11+incompatible // indirect

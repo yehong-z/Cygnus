@@ -68,10 +68,12 @@ message StatsResp {
   int64 likeCount = 3;
   // 点踩数
   int64 dislikeCount = 4;
+  State likeState = 5;
 }
 
 message MultiStatsReq {
-  repeated StatsReq statsReqs = 1;
+  int64 userId = 1;
+  repeated int64 objectId = 2;
 }
 
 message MultiStatsResp {
@@ -84,11 +86,11 @@ message HasLikeReq {
 }
 
 message UserLikeState {
-  // mid
-  int64 mid = 1;
+  int64 userId = 1;
+  int64 objectId = 2;
   // 点赞时间
-  int64 time  = 2;
-  State state = 3;
+  int64 time  = 3;
+  State state = 4;
 }
 
 message HasLikeResp {
@@ -96,7 +98,8 @@ message HasLikeResp {
 }
 
 message UserLikesReq {
-  repeated HasLikeReq hasLikeReq = 1;
+  int64 userId = 1;
+  repeated int64 objectIds = 2;
 }
 
 message UserLikesResp {

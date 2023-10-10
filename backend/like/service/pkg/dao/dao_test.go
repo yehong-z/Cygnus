@@ -13,8 +13,10 @@ func TestDao(t *testing.T) {
 	}
 	ctx := context.Background()
 	d := &dao{mysql: m}
-	err = d.AddLikeState(ctx, 1, 1, 1)
+	like, err := d.GetLikeState(ctx, 20, 1)
 	if err != nil {
 		fmt.Println(err.Error())
 	}
+
+	fmt.Println(like)
 }
