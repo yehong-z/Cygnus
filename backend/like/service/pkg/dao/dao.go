@@ -3,9 +3,11 @@ package dao
 import (
 	"context"
 	"github.com/yehong-z/Cygnus/common/mq"
+	"github.com/yehong-z/Cygnus/like/common/message"
 	"github.com/yehong-z/Cygnus/like/service/pkg/dao/gen/model/model"
 	"github.com/yehong-z/Cygnus/like/service/pkg/dao/gen/model/query"
 	"gorm.io/gorm"
+	"strconv"
 	"time"
 )
 
@@ -42,8 +44,7 @@ func (d *dao) UpdateLikeState(ctx context.Context, userId, ObjectId int64, actio
 }
 
 func (d *dao) AsyncAddCount(ctx context.Context, objectId, like, dislike int64) error {
-	//TODO implement me
-	panic("implement me")
+	return d.producer.Send(ctx, strconv.FormatInt(objectId, 10), message.CountMessage{Like: like, Dislike: dislike})
 }
 
 func (d *dao) GetObjectsByUser(ctx context.Context, userId int64) ([]int64, error) {
