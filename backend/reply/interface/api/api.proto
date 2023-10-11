@@ -20,7 +20,6 @@ service Reply {
   rpc CancelDislike(CancelDislikeReq) returns (CommonResp);
   // 举报
   rpc Report(ReportReq) returns(CommonResp);
-
   // 查询根评论
   rpc MainList(MainListReq) returns(ReplysResp);
   // 查询一个评论下的所有子评论

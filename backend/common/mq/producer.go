@@ -8,7 +8,7 @@ import (
 )
 
 type Producer interface {
-	Send(c context.Context, k string, v interface{}) (err error)
+	Send(c context.Context, k string, v []byte) (err error)
 }
 
 type KafkaProducer struct {

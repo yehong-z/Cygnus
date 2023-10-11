@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"github.com/Shopify/sarama"
 	"github.com/yehong-z/Cygnus/common/mq"
+	"github.com/yehong-z/Cygnus/common/snow"
 	"github.com/yehong-z/Cygnus/like/common/message"
 	"github.com/yehong-z/Cygnus/like/job/pkg/dao"
 	"gorm.io/gorm"
@@ -47,8 +48,10 @@ func (c *CountProcessor) Add(msg *sarama.ConsumerMessage) {
 }
 
 func InitLikeProcessor(mysql *gorm.DB) {
-	d := dao.NewDao(mysql)
+	s := snow.NewSnow(1)
+	d := dao.NewDao(mysql, s)
 	p := NewCountProcessor(d)
-	k := mq.NewKafkaConsumer(p, nil, []string{"121.36.89.81:9092"}, "test")
+	k := mq.NewKafkaConsumer(p, nil, []string{"121.36.89.81:9092"}, "like")
+	fmt.Println("comsumer start")
 	k.Start()
 }

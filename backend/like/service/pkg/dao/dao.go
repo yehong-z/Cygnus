@@ -2,6 +2,7 @@ package dao
 
 import (
 	"context"
+	"encoding/json"
 	"github.com/yehong-z/Cygnus/common/mq"
 	"github.com/yehong-z/Cygnus/like/common/message"
 	"github.com/yehong-z/Cygnus/like/service/pkg/dao/gen/model/model"
@@ -44,7 +45,12 @@ func (d *dao) UpdateLikeState(ctx context.Context, userId, ObjectId int64, actio
 }
 
 func (d *dao) AsyncAddCount(ctx context.Context, objectId, like, dislike int64) error {
-	return d.producer.Send(ctx, strconv.FormatInt(objectId, 10), message.CountMessage{Like: like, Dislike: dislike, ObjectId: objectId})
+	data, err := json.Marshal(message.CountMessage{Like: like, Dislike: dislike, ObjectId: objectId})
+	if err != nil {
+		return err
+	}
+
+	return d.producer.Send(ctx, strconv.FormatInt(objectId, 10), data)
 }
 
 func (d *dao) GetObjectsByUser(ctx context.Context, userId int64) ([]int64, error) {
