@@ -33,11 +33,11 @@ func NewKafkaProducer(brokers []string, topic string) (*KafkaProducer, error) {
 	}, nil
 }
 
-func (kp *KafkaProducer) Send(c context.Context, k string, v interface{}) (err error) {
+func (kp *KafkaProducer) Send(c context.Context, k string, v []byte) (err error) {
 	msg := &sarama.ProducerMessage{
 		Topic: kp.topic,
 		Key:   sarama.StringEncoder(k),
-		Value: sarama.StringEncoder(v.(string)),
+		Value: sarama.StringEncoder(v),
 	}
 
 	partition, offset, err := kp.producer.SendMessage(msg)

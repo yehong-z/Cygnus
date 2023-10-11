@@ -19,20 +19,20 @@ type Message interface {
 	Context() context.Context
 }
 
-type processor interface {
-	add(msg *sarama.ConsumerMessage)
+type Processor interface {
+	Add(msg *sarama.ConsumerMessage)
 }
 
 type KafkaConsumer struct {
 	startOnce sync.Once
 	closeOnce sync.Once
-	processor processor
+	processor Processor
 	config    *sarama.Config
 	topic     string
 	consumer  sarama.Consumer
 }
 
-func NewKafkaConsumer(processor processor, config *sarama.Config, broker []string, topic string) *KafkaConsumer {
+func NewKafkaConsumer(processor Processor, config *sarama.Config, broker []string, topic string) *KafkaConsumer {
 	if config == nil {
 		config = sarama.NewConfig()
 	}
@@ -67,7 +67,7 @@ func (r *KafkaConsumer) Start() {
 					fmt.Printf("Partition: %d, Offset: %d, Key: %s, Value: %s\n",
 						message.Partition, message.Offset, string(message.Key), string(message.Value))
 					// 在这里处理接收到的消息
-					r.processor.add(message)
+					r.processor.Add(message)
 				}
 			}(partitionConsumer)
 		}
